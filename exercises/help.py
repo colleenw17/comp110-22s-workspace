@@ -1,4 +1,57 @@
+ # dont' need the boolean vairable unless after "You won" you want to say bool = False
+ while play and i < turn:
+        
+        print(f"=== Turn {i}/6 ===")
+        if input_guess(len(SECRET)):
+            print(emojified(, SECRET))
+        i += 1
+        else:
+            print("X/6 - Sorry, try again tomorrow!")
 
+def contains_char(word: str, one_char: str) -> bool:
+    """Figuring out if a single character is found in the index of a word."""
+    
+    assert len(one_char) == 1
+
+    i: int = 0
+    while i < len(word):
+        if word[i] == one_char:
+            return True
+        i += 1  
+    return False
+
+def emojified(guess: str, secret: str) -> str:
+    """Using two words of equal length to test for yellow or white boxes."""
+    WHITE_BOX: str = "\U00002B1C"
+    GREEN_BOX: str = "\U0001F7E9"
+    YELLOW_BOX: str = "\U0001F7E8"
+    i: int = 0
+    emoji: str = ""
+    assert len(guess) == len(secret)
+
+    while i < len(secret):
+        if guess[i] == secret[i]:
+            emoji += GREEN_BOX
+        elif contains_char(secret, guess[i]):
+            emoji += YELLOW_BOX
+        else:
+            emoji += WHITE_BOX
+        i += 1 
+    return(emoji)
+
+def input_guess(expectedlen: int) -> str:
+    """If you're guess is not the correct length, try again until you reach the correct length."""
+    enter: str = input(f"Enter a {expectedlen} character word: ")
+    i: int = 0
+    while expectedlen != len(enter):
+        enter: str = input(f"That wasn't {expectedlen}! Try again: ")
+        i += 1
+    if expectedlen == enter:
+        print(enter)
+    return(enter)
+
+
+#########
 i: int = 0
 intro: str = input("What is your 6-letter guess? ")
 SECRET: str = "python"

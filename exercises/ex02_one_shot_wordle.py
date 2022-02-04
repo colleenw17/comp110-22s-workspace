@@ -21,7 +21,7 @@ while i < len(SECRET):  # when 0 < length of the answer and if the first index =
     else: 
         exists = False
         alt = 0
-        while exists is not True and alt < len(SECRET):  # if the first index does not equal the answer index, and it doesn't exist in the answer then move ov
+        while exists is not True and alt < len(SECRET):  # if the first index does not equal the answer index, and it doesn't exist in the answer then move on
             if intro[i] == SECRET[alt]:  # the letter is found in the answer in the correct spot so we can stop
                 exists = True
             alt = alt + 1
