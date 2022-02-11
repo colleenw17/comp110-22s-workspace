@@ -4,7 +4,7 @@ from unittest.util import strclass
 
 
 def love(name: str) -> str:
-    """Given a name as a parameter, reutnrs a loving string."""
+    """Given a name as a parameter, returns a loving string."""
     return f"I love you {name}!"
 
 def spread_love(to: str, n: int) -> str:
