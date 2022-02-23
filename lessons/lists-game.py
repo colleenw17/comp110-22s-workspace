@@ -2,9 +2,9 @@
 
 from random import randint
 
-rolls: list[int] = list()  #  setting up an empty list
+rolls: list[int] = list()   # setting up an empty list
 
-while len(rolls) == 0 or rolls[len(rolls) -1] != 1: #  the first time you roll is equal to 0 then next turn or you roll something not equal to 1
+while len(rolls) == 0 or rolls[len(rolls) -1] != 1:  # the first time you roll is equal to 0 then next turn or you roll something not equal to 1
     rolls.append(randint(1,6))
 
 print(rolls)
@@ -37,7 +37,7 @@ print(f"Total score: {sum}")
 
 # #  Access the last item of a list 
 # # the last index will be one less than the length
-# print(rolls[len(rolls) - 1])
+# print()
 
 # #  Another way to Access the last item of a list 
 # last_index: int = len(rolls) - 1
