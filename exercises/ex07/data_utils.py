@@ -41,6 +41,8 @@ def head(unmutated: dict[str, list[str]], resulting_rows: int) -> dict[str, list
     for x in unmutated: 
         first_row: list[str] = []
         i: int = 0
+        if resulting_rows > len(unmutated[x]):
+            resulting_rows = len(unmutated[x])
         while i < resulting_rows: 
             first_row.append(unmutated[x][i])
             i += 1
