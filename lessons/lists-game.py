@@ -4,24 +4,25 @@ from random import randint
 
 rolls: list[int] = list()   # setting up an empty list
 
-while len(rolls) == 0 or rolls[len(rolls) -1] != 1:  # the first time you roll is equal to 0 then next turn or you roll something not equal to 1
-    rolls.append(randint(1,6))
+while len(rolls) == 0 or rolls[len(rolls) - 1] != 1:  # the first time you roll is equal to 0 then next turn or you roll something not equal to 1
+    rolls.append(randint(1, 6))
+
 
 print(rolls)
 
 #  Remove an item from the list by its index ("pop")
-rolls.pop(len(rolls) - 1)
-print(rolls)
+# rolls.pop(len(rolls) - 1)
+# print(rolls)
 
-#  Sum the values of our rolls!
-i: int = 0 
-sum: int = 0
+# #  Sum the values of our rolls!
+# i: int = 0 
+# sum: int = 0
 
-while i < len(rolls):
-    sum = sum + rolls[i]
-    i = i + 1
+# while i < len(rolls):
+#     sum = sum + rolls[i]
+#     i = i + 1
 
-print(f"Total score: {sum}")
+# print(f"Total score: {sum}")
 
 # rolls.append(randint(1,6))
 # rolls.append(randint(1,6))

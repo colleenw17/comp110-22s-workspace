@@ -7,7 +7,10 @@ def invert(switch: dict[str, str]) -> dict[str, str]:
     """Inverting the keys so they become vaues and vice versa."""
     inv: dict[str, str] = {}
     for x in switch:
-        inv[switch[x]] = x
+        if switch[x] is x:
+            raise KeyError
+        else:
+            inv[switch[x]] = x
     return inv
 
 
@@ -18,9 +21,9 @@ def favorite_color(popular: dict[str, str]) -> str:
     max: int = 0
     for x in popular:
         if popular[x] in color:
-            color[x] += 1
+            color[popular[x]] += 1
         else:
-            color[x] == 1
+            color[popular[x]] = 1
     for y in color:
         if color[y] > max:
             max = color[y]
@@ -38,5 +41,5 @@ def count(count_freq: list[str]) -> dict[str, int]:
         if y in count_list:
             count_list[y] += 1
         else:
-            count_list[y] == 1
+            count_list[y] = 1
     return count_list
