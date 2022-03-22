@@ -36,6 +36,7 @@ def columnar(row_table: list[dict[str, str]]) -> dict[str, list[str]]:
 
 
 def head(unmutated: dict[str, list[str]], resulting_rows: int) -> dict[str, list[str]]:
+    """Returns the first couple of rows (N) in a long dictionary."""
     result: dict[str, list[str]] = {}
     for x in unmutated: 
         first_row: list[str] = []
@@ -45,3 +46,38 @@ def head(unmutated: dict[str, list[str]], resulting_rows: int) -> dict[str, list
             i += 1
         result[x] = first_row
     return result
+
+
+def select(unmutated2: dict[str, list[str]], relevant: list[str]) -> dict[str, list[str]]:
+    """Selecting the columns relevant to the analysis."""
+    result: dict[str, list[str]] = {}
+    for item in relevant:
+        result[item] = unmutated2[item]
+    return result
+
+
+def concat(columns1: dict[str, list[str]], columns2: dict[str, list[str]]) -> dict[str, list[str]]:
+    """Combining two column-based tables to perform an analysis. Adding more values to a column header that already exists."""
+    result: dict[str, list[str]] = {}
+    for item in columns1:
+        result[item] = columns1[item]
+    for item2 in columns2:
+        if item2 in result: 
+            i: int = 0
+            while i < len(columns2[item2]):
+                result[item2].append(columns2[item2][i])
+                i += 1
+        else:
+            result[item2] = columns2[item2]
+    return result
+
+
+def count(count_freq: list[str]) -> dict[str, int]:
+    """Counting how many times a value occurs."""
+    count_list: dict[str, int] = {}
+    for y in count_freq:
+        if y in count_list:
+            count_list[y] += 1
+        else:
+            count_list[y] = 1
+    return count_list
