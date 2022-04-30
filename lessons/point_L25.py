@@ -11,7 +11,7 @@ class Point:
         self.x = x
         self.y = y
 
-    def sacle_by(self, factor: float) -> None:
+    def scale_by(self, factor: float) -> None:
         """Mutates: multiplies components by factor."""
         self.x *= factor
         self.y *= factor
